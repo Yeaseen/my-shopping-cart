@@ -1,0 +1,55 @@
+
+.inc-dec{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding-left: 110px;
+}
+
+
+.vallue-button-dec {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    background: #eee;
+
+    margin-right: -4px;
+    border-radius: 8px 0 0 8px;
+  }
+  
+
+  .vallue-button-inc {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    background: #eee;
+    margin-left: -4px;
+    border-radius: 0 8px 8px 0;
+ 
+  }
+  .vallue-button-inc:hover {
+    cursor: pointer;
+  }
+
+  .vallue-button-dec:hover {
+    cursor: pointer;
+  }
+
+  .coount-value {
+    text-align: center;
+    border: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+  }
+ 

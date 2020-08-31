@@ -1,0 +1,64 @@
+body{
+    background: radial-gradient(#e5e5ef,#ffff,#efefef)
+}
+
+.card{
+    width: 30rem;
+}
+
+.card:hover{
+    box-shadow: 5px 10px 20px 1px rgba(0, 0,0, 0.253)!important;
+}
+
+.card-body{
+    padding: 1rem 0!important;
+}
+
+
+
+.container-fluid .row{
+    padding-top: 6rem;
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+
+.value-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    background: #eee;
+ 
+  }
+  
+  .value-button:hover {
+    cursor: pointer;
+  }
+
+  .count-value {
+    text-align: center;
+    border: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 20px;
+  }
+  form #decrease {
+    margin-right: -4px;
+    border-radius: 8px 0 0 8px;
+  }
+  
+  form #increase {
+    margin-left: -4px;
+    border-radius: 0 8px 8px 0;
+  }
