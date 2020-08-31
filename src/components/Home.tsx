@@ -17,7 +17,7 @@ const Home = () => {
     const { state, dispatch } = React.useContext(userContext);
 
     useEffect(() => {
-        axios.get('https://gist.githubusercontent.com/Yeaseen/9eee54d0c4c673e414af25de915b18e5/raw/b2b746f230cb6d9ce31b36f68a96a361e238de42/file.json')
+        axios.get('https://gist.githubusercontent.com/Yeaseen/9eee54d0c4c673e414af25de915b18e5/raw/c3fd521dfbc6b5fbf851bf1e0486caf380bf88de/file.json')
             .then(res => {
                 //console.log(res.data)
                 setItems(res.data)

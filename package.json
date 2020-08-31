@@ -1,6 +1,6 @@
 {
   "homepage": "http://Yeaseen.github.io/my-shopping-cart",
-  "name": "rapidapi-react-typescript",
+  "name": "my-shopping-cart",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

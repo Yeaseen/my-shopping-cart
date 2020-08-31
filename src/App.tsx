@@ -48,7 +48,7 @@ const Routing = (props) => {
 
   return (
     <Switch>
-      <Route exact path="/" >
+      <Route exact path="/yeaseens-shopping-cart" >
         <Home />
       </Route>
 

@@ -5,13 +5,13 @@ const NavBar = () => {
     const history = useHistory()
 
     useEffect(()=>{
-        {history.push("/")} 
+        {history.push("/yeaseens-shopping-cart")} 
     }, [])
 
     return (
         <div className="norm">
             <div className="nav-wrapper white">
-                <Link to="/" className="cus ">Shopping Cart</Link>
+                <Link to="/yeaseens-shopping-cart" className="cus ">Shopping Cart</Link>
                 
             </div>
         </div>
