@@ -1,18 +1,14 @@
 {
-  "name": "rapidapi-react-typescript",
+  "homepage": "http://Yeaseen.github.io/my-shopping-cart",
+  "name": "my-shopping-cart",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "@stripe/react-stripe-js": "^1.6.0",
-    "@stripe/stripe-js": "^1.20.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/bootstrap": "^4.5.0",
     "@types/jest": "^24.9.1",
-    "@types/material-ui": "^0.21.10",
     "@types/node": "^12.12.54",
     "@types/react": "^16.9.46",
     "@types/react-bootstrap": "^0.32.22",
@@ -22,14 +18,15 @@
     "bootstrap": "^4.5.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
-    "react-country-region-selector": "^3.3.0",
     "react-dom": "^16.13.1",
-    "react-hook-form": "^7.17.5",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -50,6 +47,12 @@
     ]
   },
   "devDependencies": {
-    "typescript": "^4.4.4"
+    "gh-pages": "^3.1.0"
   }
 }
+
+
+
+
+-----
+ npm run deploy   
