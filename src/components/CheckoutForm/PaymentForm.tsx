@@ -14,7 +14,7 @@ const stripePromise = loadStripe(
 )
 
 function PaymentForm(props: any) {
-  console.log(props.shippingData)
+  //console.log(props.shippingData)
 
   const { state, dispatch } = useContext(userContext)
 
@@ -42,6 +42,8 @@ function PaymentForm(props: any) {
 
     if (error) {
       console.log(error)
+      props.ifError(error)
+      props.nextStep()
     } else {
       const orderData = {
         all_items: state.products,
@@ -65,7 +67,7 @@ function PaymentForm(props: any) {
           }
         }
       }
-
+      props.handleCaptureCheckout(orderData)
       props.nextStep()
     }
   }

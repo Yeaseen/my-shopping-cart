@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Table, Button } from 'react-bootstrap'
 import { userContext } from '../App'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Types } from '../reducers'
 
 import './Cart.css'
@@ -155,6 +155,24 @@ const Cart = (props) => {
               >
                 Empty Cart
               </Button>{' '}
+              {state.products.length > 0 ? (
+                <div
+                  className="btn btn-secondary"
+                  style={{ marginRight: '10px' }}
+                >
+                  <Link
+                    style={{ color: 'white' }}
+                    to={{
+                      pathname: '/checkout'
+                    }}
+                  >
+                    {' '}
+                    Checkout
+                  </Link>
+                </div>
+              ) : (
+                <></>
+              )}
             </td>
           </tr>
         </tbody>
