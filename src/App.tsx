@@ -2,6 +2,7 @@ import React, { useEffect, createContext, useReducer, useContext } from 'react'
 import NavBar from './components/Navbar'
 import './App.css'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 import Home from './components/Home'
 import Product from './components/Product'
 import Cart from './components/Cart'
@@ -9,6 +10,7 @@ import Checkout from './components/CheckoutForm/Checkout/Checkout'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { productReducer } from './reducers'
 
+require('dotenv').config()
 type ProductType = {
   id: number
   title: string

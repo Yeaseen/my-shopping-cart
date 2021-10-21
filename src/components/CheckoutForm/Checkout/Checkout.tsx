@@ -30,7 +30,7 @@ const Checkout = (props) => {
 
   const test = (data) => {
     setShippingData(data)
-    console.log(data)
+    //console.log(data)
     nextStep()
   }
 
@@ -38,10 +38,14 @@ const Checkout = (props) => {
     activeStep === 0 ? (
       <AddressForm test={test} />
     ) : (
-      <PaymentForm shippingData={shippingData} />
+      <PaymentForm
+        shippingData={shippingData}
+        nextStep={nextStep}
+        backStep={backStep}
+      />
     )
 
-  const Confirmation = () => <div>Confirmation </div>
+  let Confirmation = () => <div>Confirmation </div>
   return (
     <>
       <div className={classes.toolbar} />

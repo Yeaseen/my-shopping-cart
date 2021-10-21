@@ -1,37 +1,30 @@
 import React, { useState } from 'react'
-import {
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
-  Grid,
-  Typography
-} from '@material-ui/core'
+import { Button, Grid, Typography } from '@material-ui/core'
 import { useForm, FormProvider } from 'react-hook-form'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector'
 import CustomTextField from './CustomTextField'
 
 const AddressForm = (props: any) => {
   const [country, setCountry] = useState('United States')
-  const [city, setCity] = useState('California')
+  const [division, setDivision] = useState('California')
   const methods = useForm()
 
   const onSubmit = (data) => {
-    console.log(data)
-    props.test(data)
+    //console.log(data)
+    props.test({ ...data, country, division })
   }
 
   const selectCountry = (val) => {
     setCountry(val)
-    console.log(country)
+    //console.log(country)
   }
 
   const selectRegion = (val) => {
-    setCity(val)
-    console.log(city)
+    setDivision(val)
+    //console.log(division)
   }
-  const { handleSubmit, control } = useForm()
+
   return (
     <>
       <Typography variant="h6" gutterBottom>
@@ -57,7 +50,7 @@ const AddressForm = (props: any) => {
             <Grid item xs={12} sm={6}>
               <RegionDropdown
                 country={country}
-                value={city}
+                value={division}
                 onChange={(val) => selectRegion(val)}
               />
             </Grid>
