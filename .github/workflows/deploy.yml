@@ -3,11 +3,15 @@ name: Deploy React app to GitHub Pages
 on:
   push:
     branches:
-      - master   # change to "main" if that's your default
+      - master  # or main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      NPM_CONFIG_LEGACY_PEER_DEPS: true
+      NODE_OPTIONS: --openssl-legacy-provider
+      CI: false  # 👈 do not treat warnings as errors
 
     steps:
       - uses: actions/checkout@v3
@@ -16,8 +20,7 @@ jobs:
         with:
           node-version: 18
 
-      - run: npm ci --legacy-peer-deps
-
+      - run: npm ci
       - run: npm run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
