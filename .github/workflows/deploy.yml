@@ -1,17 +1,10 @@
-name: Deploy React app to GitHub Pages
-
-on:
-  push:
-    branches:
-      - master  # or main
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
       NPM_CONFIG_LEGACY_PEER_DEPS: true
       NODE_OPTIONS: --openssl-legacy-provider
-      CI: false  # 👈 do not treat warnings as errors
+      CI: "false"
 
     steps:
       - uses: actions/checkout@v3
@@ -19,8 +12,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: npm
 
       - run: npm ci
-      - run: npm run deploy
+
+      - name: Configure git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Deploy to GitHub Pages
+        run: npm run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
