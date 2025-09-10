@@ -1,5 +1,5 @@
+// App.tsx
 import React, {
-  useState,
   useEffect,
   createContext,
   useReducer,
@@ -17,6 +17,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { productReducer } from './reducers'
 
 require('dotenv').config()
+
 type ProductType = {
   id: number
   title: string
@@ -29,10 +30,13 @@ type InitialStateType = {
   products: ProductType[]
 }
 
-const initialState = {
+const STORAGE_KEY = 'my-shopping-cart:state:v1'
+
+const initialState: InitialStateType = {
   products: []
 }
-const mainReducer = ({ products }, action) => ({
+
+const mainReducer = ({ products }: InitialStateType, action: any): InitialStateType => ({
   products: productReducer(products, action)
 })
 
@@ -44,11 +48,7 @@ export const userContext = createContext<{
   dispatch: () => null
 })
 
-const Routing = (props) => {
-  const { state, dispatch } = useContext(userContext)
-
-  useEffect(() => {}, [])
-
+const Routing = () => {
   return (
     <Switch>
       <Route exact path="/">
@@ -70,12 +70,34 @@ const Routing = (props) => {
   )
 }
 
+// Rehydrate state from sessionStorage
+function init(saved: InitialStateType): InitialStateType {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY)
+    if (!raw) return saved
+    const parsed = JSON.parse(raw)
+    if (!parsed || !Array.isArray(parsed.products)) return saved
+    return { products: parsed.products }
+  } catch {
+    return saved
+  }
+}
+
 function App() {
-  const [state, dispatch] = useReducer(mainReducer, initialState)
+  const [state, dispatch] = useReducer(mainReducer, initialState, init)
+
+  // Save to sessionStorage whenever state changes
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+    } catch {
+      // ignore write errors
+    }
+  }, [state])
 
   return (
     <userContext.Provider value={{ state, dispatch }}>
-      <BrowserRouter>
+      <BrowserRouter basename="/my-shopping-cart">
         <NavBar />
         <Routing />
       </BrowserRouter>

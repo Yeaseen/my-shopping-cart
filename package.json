@@ -1,5 +1,5 @@
 {
-  "homepage": "http://Yeaseen.github.io/my-shopping-cart",
+  "homepage": "https://yeaseen.github.io/my-shopping-cart",
   "name": "my-shopping-cart",
   "version": "0.1.0",
   "private": true,
@@ -31,7 +31,7 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
